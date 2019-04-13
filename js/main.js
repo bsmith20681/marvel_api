@@ -1,20 +1,25 @@
 const characterId = 'https://gateway.marvel.com/v1/public/characters?'
 const apiKey = '&apikey=bf63e86f55b219bcd579082f0eed4d21'
 
-const thor = 'name=Thor'
 
-const name = document.querySelector('.name')
-const description = document.querySelector('.description')
+const heroName = document.querySelector('.heroName')
+const heroDescription = document.querySelector('.heroDescription')
+const heroComic = document.querySelector('.heroComic')
 
-
-  fetch(characterId + thor)
+function thor(){
+  const thor = 'name=Thor'
+  fetch(characterId + thor + apiKey)
     .then(response => response.json())
     .then(data => {
       console.log(data.data)
 
-      name.innerHTML = data.data.results[0].name
-      description.innerHTML = data.data.results[0].description
-    })
+      heroName.innerHTML = data.data.results[0].name
+      heroDescription.innerHTML = data.data.results[0].description
+      //heroComic.innerHTML = data.data.results[0].
+    });
+}
+
+
 
 
 
