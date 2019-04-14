@@ -13,6 +13,14 @@ const heroComic = document.querySelector('.heroComic')
 const comicCover1 = document.querySelector('.comicCover1')
 const comicCover2 = document.querySelector('.comicCover2')
 const comicCover3 = document.querySelector('.comicCover3')
+const comicTitle1 = document.querySelector('.comicTitle1')
+const comicTitle2 = document.querySelector('.comicTitle2')
+const comicTitle3 = document.querySelector('.comicTitle3')
+const comicDescription1 = document.querySelector('.comicDescription1')
+const comicDescription2 = document.querySelector('.comicDescription2')
+const comicDescription3 = document.querySelector('.comicDescription3')
+
+
 
 
 function thor(){
@@ -31,9 +39,21 @@ function thor(){
     .then(response => response.json())
     .then(data => {
       console.log(data.data)
+
+
       comicCover1.src = data.data.results[0].images[0].path + "/portrait_incredible.jpg"
       comicCover2.src = data.data.results[1].images[0].path + "/portrait_incredible.jpg"
       comicCover3.src = data.data.results[2].images[0].path + "/portrait_incredible.jpg"
+
+      comicTitle1.innerHTML = data.data.results[0].title
+      comicTitle2.innerHTML = data.data.results[1].title
+      comicTitle3.innerHTML = data.data.results[2].title
+
+      comicDescription1.innerHTML = data.data.results[0].description
+      comicDescription2.innerHTML = data.data.results[1].description
+      comicDescription3.innerHTML = data.data.results[2].description
+
+
 
     })
 }
