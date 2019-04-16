@@ -36,7 +36,12 @@
   .btn-red:hover {
     background-color: #A21419; }
 
-.comicCover {
+.comicAppearance {
   background-color: black; }
+  .comicAppearance p {
+    font-weight: bold; }
+
+.footer {
+  background-color: #000; }
 
 /*# sourceMappingURL=mains.css.map */

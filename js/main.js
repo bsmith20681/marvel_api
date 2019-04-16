@@ -43,13 +43,23 @@ function thor(){
   fetch(characterComic + thorId + '/comics?' + apiKey)
     .then(response => response.json())
     .then(data => {
-     //console.log(data.data.results)
+     console.log(data.data.results)
      data.data.results.forEach(result => {
-       console.log(result.thumbnail.path  + "/portrait_incredible.jpg")
-       const characterImage = result.thumbnail.path  + "/portrait_incredible.jpg"
-       const imageElement = document.createElement('img')
-       imageElement.src = characterImage;
-       comicCover.appendChild(imageElement);
+       //console.log(result.thumbnail.path  + "/portrait_incredible.jpg")
+       const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
+       const comicTitle = result.title;
+       const comicImageElement = document.createElement('img')
+       const characterElement = document.createElement('div')
+       const comicTitleElement = document.createElement('p')
+
+       comicTitleElement.textContent = comicTitle
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6"
+       comicImageElement.src = comicImage;
+       comicTitleElement.className = "text-white"
+
+       characterElement.appendChild(comicImageElement)
+       characterElement.appendChild(comicTitleElement)
+       comicCover.appendChild(characterElement);
      })
 
     })
