@@ -3,8 +3,13 @@ const characterComic = 'https://gateway.marvel.com/v1/public/characters/'
 const apiKey = 'apikey=bf63e86f55b219bcd579082f0eed4d21'
 
 
+
+
 //hero's id numbers
 const thorId = '1009664'
+
+
+const comicCover = document.querySelector(".comicCover")
 
 
 const heroName = document.querySelector('.heroName')
@@ -28,7 +33,7 @@ function thor(){
   fetch(characterId + thor + '&' + apiKey)
     .then(response => response.json())
     .then(data => {
-      console.log(data.data)
+    //  console.log(data.data)
 
       heroName.innerHTML = data.data.results[0].name
       heroDescription.innerHTML = data.data.results[0].description
@@ -38,24 +43,17 @@ function thor(){
   fetch(characterComic + thorId + '/comics?' + apiKey)
     .then(response => response.json())
     .then(data => {
-      console.log(data.data)
-
-
-      comicCover1.src = data.data.results[0].images[0].path + "/portrait_incredible.jpg"
-      comicCover2.src = data.data.results[1].images[0].path + "/portrait_incredible.jpg"
-      comicCover3.src = data.data.results[2].images[0].path + "/portrait_incredible.jpg"
-
-      comicTitle1.innerHTML = data.data.results[0].title
-      comicTitle2.innerHTML = data.data.results[1].title
-      comicTitle3.innerHTML = data.data.results[2].title
-
-      comicDescription1.innerHTML = data.data.results[0].description
-      comicDescription2.innerHTML = data.data.results[1].description
-      comicDescription3.innerHTML = data.data.results[2].description
-
-
+     //console.log(data.data.results)
+     data.data.results.forEach(result => {
+       console.log(result.thumbnail.path  + "/portrait_incredible.jpg")
+       const characterImage = result.thumbnail.path  + "/portrait_incredible.jpg"
+       const imageElement = document.createElement('img')
+       imageElement.src = characterImage;
+       comicCover.appendChild(imageElement);
+     })
 
     })
+
 }
 
 
