@@ -40,7 +40,7 @@ function thor(){
       //heroComic.innerHTML = data.data.results[0].
     });
 
-/*
+
   fetch(characterComic + thorId + '/comics?' + apiKey)
     .then(response => response.json())
     .then(data => {
@@ -54,7 +54,7 @@ function thor(){
        const comicTitleElement = document.createElement('p')
 
        comicTitleElement.textContent = comicTitle
-       characterElement.className = "col-lg-3 col-md-3 col-sm-6 cover-hidden"
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6 cover"
        comicImageElement.src = comicImage;
        comicTitleElement.className = "text-white"
 
@@ -66,45 +66,19 @@ function thor(){
     })
 
 }
-*/
 
-$(document).ready(function(){
-  console.log('hello')
-  $('.cover-hidden').slice(0,4).show();
-  $('#loadMore').on('click', function(e){
-    e.preventDefault();
-    $('.cover-hidden:hidden').slice(0,4).slideDown();
-  })
 
+
+$(document).on('click','#loadMore',function(){
+  $('.cover').slice(0,4).show();
+
+  $('#loadMore').click(function(e) {
+   e.preventDefault();
+    $('.cover:hidden').slice(0,4).fadeIn('slow');
+    console.log("hi")
+
+  });
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
