@@ -41,6 +41,15 @@
   .comicAppearance p {
     font-weight: bold; }
 
+.return-home {
+  padding: 100px 0 100px 0;
+  background-image: url(../img/comic-background.jpg);
+  background-size: cover;
+  text-align: center; }
+  .return-home h1 {
+    font-family: bad;
+    font-size: 65px; }
+
 .footer {
   background-color: #000; }
 
