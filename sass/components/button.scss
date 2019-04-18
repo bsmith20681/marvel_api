@@ -1,6 +1,5 @@
 .btn {
   border: none;
-  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -10,7 +9,18 @@
 
 .btn-red {
   background-color: $color-red;
+  color: white;
   &:hover {
     background-color: $color-dark-red;
+  }
+}
+
+.btn-transparent {
+  background-color: black;
+  border: 2px solid white;
+  color:white;
+  &:hover{
+    background-color: white;
+    color:black;
   }
 }

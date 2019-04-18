@@ -45,6 +45,27 @@ function thor(){
     .then(response => response.json())
     .then(data => {
      console.log(data.data.results)
+
+
+     data.data.results.slice(0,4).forEach(result => {
+       //console.log(result.thumbnail.path  + "/portrait_incredible.jpg")
+       const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
+       const comicTitle = result.title;
+       const comicImageElement = document.createElement('img')
+       const characterElement = document.createElement('div')
+       const comicTitleElement = document.createElement('p')
+
+       comicTitleElement.textContent = comicTitle
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6"
+       comicImageElement.src = comicImage;
+       comicTitleElement.className = "text-white"
+
+       characterElement.appendChild(comicImageElement)
+       characterElement.appendChild(comicTitleElement)
+       comicCover.appendChild(characterElement);
+
+     })
+
      data.data.results.forEach(result => {
        //console.log(result.thumbnail.path  + "/portrait_incredible.jpg")
        const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
@@ -54,6 +75,7 @@ function thor(){
        const comicTitleElement = document.createElement('p')
 
        comicTitleElement.textContent = comicTitle
+       characterElement.className.slice(0,4) = "col-lg-3 col-md-3 col-sm-6"
        characterElement.className = "col-lg-3 col-md-3 col-sm-6 cover"
        comicImageElement.src = comicImage;
        comicTitleElement.className = "text-white"
@@ -61,6 +83,7 @@ function thor(){
        characterElement.appendChild(comicImageElement)
        characterElement.appendChild(comicTitleElement)
        comicCover.appendChild(characterElement);
+
      })
 
     })
@@ -70,13 +93,11 @@ function thor(){
 
 
 $(document).on('click','#loadMore',function(){
-  $('.cover').slice(0,4).show();
-
+  $('.cover').slice(4,8).show();
   $('#loadMore').click(function(e) {
    e.preventDefault();
     $('.cover:hidden').slice(0,4).fadeIn('slow');
     console.log("hi")
-
   });
 })
 

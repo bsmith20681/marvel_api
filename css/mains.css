@@ -24,7 +24,6 @@
 
 .btn {
   border: none;
-  color: white;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -32,9 +31,18 @@
   cursor: pointer; }
 
 .btn-red {
-  background-color: #ED1D24; }
+  background-color: #ED1D24;
+  color: white; }
   .btn-red:hover {
     background-color: #A21419; }
+
+.btn-transparent {
+  background-color: black;
+  border: 2px solid white;
+  color: white; }
+  .btn-transparent:hover {
+    background-color: white;
+    color: black; }
 
 .comicAppearance {
   background-color: black; }
