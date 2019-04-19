@@ -57,8 +57,7 @@
   .comicAppearance p {
     font-weight: bold; }
 
-.cover {
-  display: none; }
+
 
 .choose-hero {
   background-image: linear-gradient(to right bottom, rgba(237, 29, 36, 0.85), rgba(237, 29, 36, 0.85)), url(../img/comicbook-background.jpg); }

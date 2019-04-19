@@ -3,20 +3,18 @@ const characterComic = 'https://gateway.marvel.com/v1/public/characters/'
 const apiKey = 'apikey=bf63e86f55b219bcd579082f0eed4d21'
 
 
-
-
 //hero's id numbers
 const thorId = '1009664'
+const hulkId = '1009351'
+const spiderManId = '1009610'
+const captainAmericaId = '1009220'
+const blackWidowId = '1009189'
+const thanosId = '1009652'
 
 
 const comicCover = document.querySelector(".comic-cover")
-
-
 const heroName = document.querySelector('.heroName')
 const heroDescription = document.querySelector('.heroDescription')
-
-
-
 
 
 function thor(){
@@ -33,9 +31,7 @@ function thor(){
   fetch(characterComic + thorId + '/comics?' + apiKey)
     .then(response => response.json())
     .then(data => {
-     console.log(data.data.results)
      data.data.results.forEach(result => {
-       //console.log(result.thumbnail.path  + "/portrait_incredible.jpg")
        const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
        const comicTitle = result.title;
        const comicImageElement = document.createElement('img')
@@ -43,7 +39,7 @@ function thor(){
        const comicTitleElement = document.createElement('p')
 
        comicTitleElement.textContent = comicTitle
-       characterElement.className = "col-lg-3 col-md-3 col-sm-6 cover"
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6 test cover"
        comicImageElement.src = comicImage;
        comicTitleElement.className = "text-white"
 
@@ -51,34 +47,19 @@ function thor(){
        characterElement.appendChild(comicTitleElement)
        comicCover.appendChild(characterElement);
      })
-
+     //line of jquery that allows for the first 4 comic book pages to be display when page loads
+     $('.cover').slice(4,data.data.results.length).css('display', 'none')
     })
-
-
 }
 
 
-  $(document).on('mouseover', 'body', function(e){
-    $('.cover').slice(0,4).show();
-    $(document).off('mouseover')
-    $('#loadMore').on('click', function(e) {
-     e.preventDefault();
-      $('.cover:hidden').slice(0,4).fadeIn('slow');
-      console.log("hi")
-    });
-  });
-
-
-
-
-
-
-
-
-
-//Thor 1009664
-//Hulk 1009351
-//Spider-Man 1009610
-//Captain America 1009220
-//Black Widow 1009189
-//Thanos 1009652
+//line of jquery function that shows 4 comic covers at a time
+$(document).on('click','#loadMore',function(){
+   $('#loadMore').click(function(e) {
+   e.preventDefault();
+    $('.cover:hidden').slice(0,4).fadeIn('slow');
+    if($('.cover:hidden').length == 0){
+      $('#loadMore').text('No More Content').addClass("noContent")
+    }
+   });
+})
