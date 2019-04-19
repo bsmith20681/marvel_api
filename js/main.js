@@ -9,21 +9,12 @@ const apiKey = 'apikey=bf63e86f55b219bcd579082f0eed4d21'
 const thorId = '1009664'
 
 
-const comicCover = document.querySelector(".comicCover")
+const comicCover = document.querySelector(".comic-cover")
 
 
 const heroName = document.querySelector('.heroName')
 const heroDescription = document.querySelector('.heroDescription')
-const heroComic = document.querySelector('.heroComic')
-const comicCover1 = document.querySelector('.comicCover1')
-const comicCover2 = document.querySelector('.comicCover2')
-const comicCover3 = document.querySelector('.comicCover3')
-const comicTitle1 = document.querySelector('.comicTitle1')
-const comicTitle2 = document.querySelector('.comicTitle2')
-const comicTitle3 = document.querySelector('.comicTitle3')
-const comicDescription1 = document.querySelector('.comicDescription1')
-const comicDescription2 = document.querySelector('.comicDescription2')
-const comicDescription3 = document.querySelector('.comicDescription3')
+
 
 
 
@@ -33,11 +24,9 @@ function thor(){
   fetch(characterId + thor + '&' + apiKey)
     .then(response => response.json())
     .then(data => {
-    //  console.log(data.data)
 
       heroName.innerHTML = data.data.results[0].name
       heroDescription.innerHTML = data.data.results[0].description
-      //heroComic.innerHTML = data.data.results[0].
     });
 
 
@@ -45,27 +34,6 @@ function thor(){
     .then(response => response.json())
     .then(data => {
      console.log(data.data.results)
-
-
-     data.data.results.slice(0,4).forEach(result => {
-       //console.log(result.thumbnail.path  + "/portrait_incredible.jpg")
-       const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
-       const comicTitle = result.title;
-       const comicImageElement = document.createElement('img')
-       const characterElement = document.createElement('div')
-       const comicTitleElement = document.createElement('p')
-
-       comicTitleElement.textContent = comicTitle
-       characterElement.className = "col-lg-3 col-md-3 col-sm-6"
-       comicImageElement.src = comicImage;
-       comicTitleElement.className = "text-white"
-
-       characterElement.appendChild(comicImageElement)
-       characterElement.appendChild(comicTitleElement)
-       comicCover.appendChild(characterElement);
-
-     })
-
      data.data.results.forEach(result => {
        //console.log(result.thumbnail.path  + "/portrait_incredible.jpg")
        const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
@@ -75,7 +43,6 @@ function thor(){
        const comicTitleElement = document.createElement('p')
 
        comicTitleElement.textContent = comicTitle
-       characterElement.className.slice(0,4) = "col-lg-3 col-md-3 col-sm-6"
        characterElement.className = "col-lg-3 col-md-3 col-sm-6 cover"
        comicImageElement.src = comicImage;
        comicTitleElement.className = "text-white"
@@ -83,23 +50,27 @@ function thor(){
        characterElement.appendChild(comicImageElement)
        characterElement.appendChild(comicTitleElement)
        comicCover.appendChild(characterElement);
-
      })
 
     })
 
+
 }
 
 
-
-$(document).on('click','#loadMore',function(){
-  $('.cover').slice(4,8).show();
-  $('#loadMore').click(function(e) {
-   e.preventDefault();
-    $('.cover:hidden').slice(0,4).fadeIn('slow');
-    console.log("hi")
+  $(document).on('mouseover', 'body', function(e){
+    $('.cover').slice(0,4).show();
+    $(document).off('mouseover')
+    $('#loadMore').on('click', function(e) {
+     e.preventDefault();
+      $('.cover:hidden').slice(0,4).fadeIn('slow');
+      console.log("hi")
+    });
   });
-})
+
+
+
+
 
 
 

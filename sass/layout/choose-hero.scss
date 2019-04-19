@@ -1,0 +1,12 @@
+.choose-hero {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-red, 0.85),
+      rgba($color-red, 0.85)),
+       url(../img/comicbook-background.jpg);
+  &-title {
+    font-family: bad;
+    font-size: 75px;
+    color: white;
+  }
+}
