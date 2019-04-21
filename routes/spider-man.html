@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Marvel API</title>
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/mains.css">
+</head>
+<body>
+  <header
+  class="header__background"
+  style="background-image: url(https://terrigen-cdn-dev.marvel.com/content/prod/1x/005smp_com_mas_dsk_03_3.jpg); --imageLg1x:url(https\:\/\/terrigen-cdn-dev\.marvel\.com\/content\/prod\/1x\/005smp_com_mas_dsk_03_3\.jpg); --imageSm1x:url(https\:\/\/terrigen-cdn-dev\.marvel\.com\/content\/prod\/1x\/005smp_com_mas_mob_03_3\.jpg);"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <h1 class="Name text-white">Spider Man</h1>
+          <p class="text-white">Bitten by a radioactive spider, Peter Parker’s arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="aboutHero">
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+          <img class="" src="http://i.annihil.us/u/prod/marvel/i/mg/3/50/526548a343e4b/portrait_uncanny.jpg" alt="Thor">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h1 class="heroName"></h1>
+          <p class="heroDescription"></p>
+          <h1 class="">Powers</h1>
+          <ul>
+            <li>Shoots Spider Webs</li>
+            <li>Adhesive Stick/Wall Crawling</li>
+            <li>Spider Sense</li>
+          </ul>
+          <a href="https://www.marvel.com/characters/hulk-bruce-banner/in-comics"><button class="btn btn-red">Learn More</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="comicAppearance">
+    <div class="container">
+      <div class="row comic-cover pt-5">
+
+
+      </div>
+      <div class="text-center">
+        <button id="loadMore" class="btn btn-transparent mb-5">LOAD MORE</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="return-home">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <h1>CHOOSE ANOTHER HERO</h1>
+          <a href="/index.html"><button class="btn btn-red">Return to Home Page</button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h4 class="text-white text-center">
+            This Info Was Brought to you By <a href="https://developer.marvel.com/">The Marvel API</a>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+  <script src="../js/main.js"></script>
+  <script>spiderMan();</script>
+</body>
+</html>

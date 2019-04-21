@@ -7,7 +7,7 @@ const apiKey = 'apikey=bf63e86f55b219bcd579082f0eed4d21'
 const thorId = '1009664'
 const hulkId = '1009351'
 const spiderManId = '1009610'
-const captainAmericaId = '1009220'
+const ironManId = '1009368'
 const blackWidowId = '1009189'
 const thanosId = '1009652'
 
@@ -29,6 +29,146 @@ function thor(){
 
 
   fetch(characterComic + thorId + '/comics?' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+     data.data.results.forEach(result => {
+       const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
+       const comicTitle = result.title;
+       const comicImageElement = document.createElement('img')
+       const characterElement = document.createElement('div')
+       const comicTitleElement = document.createElement('p')
+
+       comicTitleElement.textContent = comicTitle
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6 test cover"
+       comicImageElement.src = comicImage;
+       comicTitleElement.className = "text-white"
+
+       characterElement.appendChild(comicImageElement)
+       characterElement.appendChild(comicTitleElement)
+       comicCover.appendChild(characterElement);
+     })
+     //line of jquery that allows for the first 4 comic book pages to be display when page loads
+     $('.cover').slice(4,data.data.results.length).css('display', 'none')
+    })
+}
+
+function hulk(){
+  const hulk = 'name=Hulk'
+  fetch(characterId + hulk + '&' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+
+      heroName.innerHTML = data.data.results[0].name
+      heroDescription.innerHTML = data.data.results[0].description
+    });
+
+
+  fetch(characterComic + hulkId + '/comics?' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+     data.data.results.forEach(result => {
+       const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
+       const comicTitle = result.title;
+       const comicImageElement = document.createElement('img')
+       const characterElement = document.createElement('div')
+       const comicTitleElement = document.createElement('p')
+
+       comicTitleElement.textContent = comicTitle
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6 test cover"
+       comicImageElement.src = comicImage;
+       comicTitleElement.className = "text-white"
+
+       characterElement.appendChild(comicImageElement)
+       characterElement.appendChild(comicTitleElement)
+       comicCover.appendChild(characterElement);
+     })
+     //line of jquery that allows for the first 4 comic book pages to be display when page loads
+     $('.cover').slice(4,data.data.results.length).css('display', 'none')
+    })
+}
+
+function spiderMan(){
+  const spiderMan = 'name=Spider-Man'
+  fetch(characterId + spiderMan + '&' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+
+      heroName.innerHTML = data.data.results[0].name
+      heroDescription.innerHTML = data.data.results[0].description
+    });
+
+
+  fetch(characterComic + spiderManId + '/comics?' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+     data.data.results.forEach(result => {
+       const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
+       const comicTitle = result.title;
+       const comicImageElement = document.createElement('img')
+       const characterElement = document.createElement('div')
+       const comicTitleElement = document.createElement('p')
+
+       comicTitleElement.textContent = comicTitle
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6 test cover"
+       comicImageElement.src = comicImage;
+       comicTitleElement.className = "text-white"
+
+       characterElement.appendChild(comicImageElement)
+       characterElement.appendChild(comicTitleElement)
+       comicCover.appendChild(characterElement);
+     })
+     //line of jquery that allows for the first 4 comic book pages to be display when page loads
+     $('.cover').slice(4,data.data.results.length).css('display', 'none')
+    })
+}
+
+function ironMan(){
+  const ironMan = 'name=iron%20man'
+  fetch(characterId + ironMan + '&' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+
+      heroName.innerHTML = data.data.results[0].name
+      heroDescription.innerHTML = data.data.results[0].description
+    });
+
+
+  fetch(characterComic + ironManId + '/comics?' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+     data.data.results.forEach(result => {
+       const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
+       const comicTitle = result.title;
+       const comicImageElement = document.createElement('img')
+       const characterElement = document.createElement('div')
+       const comicTitleElement = document.createElement('p')
+
+       comicTitleElement.textContent = comicTitle
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6 test cover"
+       comicImageElement.src = comicImage;
+       comicTitleElement.className = "text-white"
+
+       characterElement.appendChild(comicImageElement)
+       characterElement.appendChild(comicTitleElement)
+       comicCover.appendChild(characterElement);
+     })
+     //line of jquery that allows for the first 4 comic book pages to be display when page loads
+     $('.cover').slice(4,data.data.results.length).css('display', 'none')
+    })
+}
+
+function blackWidow(){
+  const blackWidow = 'name=Black%20Widow'
+  fetch(characterId + blackWidow + '&' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+
+      heroName.innerHTML = data.data.results[0].name
+      heroDescription.innerHTML = data.data.results[0].description
+    });
+
+
+  fetch(characterComic + blackWidowId + '/comics?' + apiKey)
     .then(response => response.json())
     .then(data => {
      data.data.results.forEach(result => {
