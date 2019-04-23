@@ -8,7 +8,7 @@ const thorId = '1009664'
 const hulkId = '1009351'
 const spiderManId = '1009610'
 const ironManId = '1009368'
-const blackWidowId = '1009189'
+const wolverineId = '1009718'
 const thanosId = '1009652'
 
 
@@ -157,9 +157,9 @@ function ironMan(){
     })
 }
 
-function blackWidow(){
-  const blackWidow = 'name=Black%20Widow'
-  fetch(characterId + blackWidow + '&' + apiKey)
+function wolverine(){
+  const wolverine = 'name=wolverine'
+  fetch(characterId + wolverine + '&' + apiKey)
     .then(response => response.json())
     .then(data => {
 
@@ -168,7 +168,7 @@ function blackWidow(){
     });
 
 
-  fetch(characterComic + blackWidowId + '/comics?' + apiKey)
+  fetch(characterComic + wolverineId + '/comics?' + apiKey)
     .then(response => response.json())
     .then(data => {
      data.data.results.forEach(result => {
@@ -191,6 +191,42 @@ function blackWidow(){
      $('.cover').slice(4,data.data.results.length).css('display', 'none')
     })
 }
+
+function thanos(){
+  const thanos = 'name=thanos'
+  fetch(characterId + thanos + '&' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+
+      heroName.innerHTML = data.data.results[0].name
+      heroDescription.innerHTML = data.data.results[0].description
+    });
+
+
+  fetch(characterComic + thanosId + '/comics?' + apiKey)
+    .then(response => response.json())
+    .then(data => {
+     data.data.results.forEach(result => {
+       const comicImage = result.thumbnail.path  + "/portrait_incredible.jpg"
+       const comicTitle = result.title;
+       const comicImageElement = document.createElement('img')
+       const characterElement = document.createElement('div')
+       const comicTitleElement = document.createElement('p')
+
+       comicTitleElement.textContent = comicTitle
+       characterElement.className = "col-lg-3 col-md-3 col-sm-6 test cover"
+       comicImageElement.src = comicImage;
+       comicTitleElement.className = "text-white"
+
+       characterElement.appendChild(comicImageElement)
+       characterElement.appendChild(comicTitleElement)
+       comicCover.appendChild(characterElement);
+     })
+     //line of jquery that allows for the first 4 comic book pages to be display when page loads
+     $('.cover').slice(4,data.data.results.length).css('display', 'none')
+    })
+}
+
 
 
 //line of jquery function that shows 4 comic covers at a time
