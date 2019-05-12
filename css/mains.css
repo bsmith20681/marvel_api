@@ -68,7 +68,7 @@
     font-weight: bold; }
 
 .choose-hero {
-  background-image: linear-gradient(to right bottom, rgba(237, 29, 36, 0.85), rgba(237, 29, 36, 0.85)), url(../img/comicbook-background.jpg); }
+  background-image: linear-gradient(to right bottom, rgba(237, 29, 36, 0.85), rgba(237, 29, 36, 0.85)), url(../img/comicbook_background.jpg); }
   .choose-hero-title {
     font-family: bad;
     font-size: 75px;
@@ -76,7 +76,7 @@
 
 .return-home {
   padding: 100px 0 100px 0;
-  background-image: url(../img/comic-background.jpg);
+  background-image: url(../img/comic_background.jpg);
   background-size: cover;
   text-align: center; }
   .return-home h1 {
