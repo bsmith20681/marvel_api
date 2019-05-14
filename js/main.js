@@ -239,3 +239,12 @@ $(document).on('click','#loadMore',function(){
     }
    });
 })
+
+//removes loading gif
+window.addEventListener('load', function(){
+  const nameLoader = document.querySelector('.name-loader');
+  const comicLoader = document.querySelector('.comic-loader');
+
+  nameLoader.className += ' hidden';
+  comicLoader.className += ' hidden';
+});

@@ -5,6 +5,9 @@
 @font-face {
   font-family: din;
   src: url(../css/fonts/din.otf); }
+.hidden {
+  display: none; }
+
 .header__background {
   background-repeat: no-repeat;
   background-size: cover;
